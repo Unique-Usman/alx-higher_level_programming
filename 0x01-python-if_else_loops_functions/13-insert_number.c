@@ -25,6 +25,7 @@ listint_t *insert_node(listint_t **head, int number)
 	{
 		tmp->next = *head;
 		*head = tmp;
+		return (tmp);
 	}
         while (traversal->next != NULL)
         {
