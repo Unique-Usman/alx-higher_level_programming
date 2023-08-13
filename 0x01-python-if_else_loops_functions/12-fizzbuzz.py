@@ -11,4 +11,3 @@ def fizzbuzz():
         if i != 100:
             output += " "
     print(output, end="")
-fizzbuzz()
