@@ -41,7 +41,7 @@ listint_t *insert_node(listint_t **head, int number)
                 traversal->next = tmp;
                 return (tmp);
             }
-            if (traversal->next == NULL && traversal->n < number)
+            if (traversal->next->n < number && traversal->next->next == NULL)
             {
                 traversal->next = tmp;
                 return tmp;
