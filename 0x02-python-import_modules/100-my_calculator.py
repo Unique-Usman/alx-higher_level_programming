@@ -16,13 +16,13 @@ def main():
         sys.exit(1)
 
     if sys.argv[2] == "+":
-        ans = int(sys.argv[1]) + int(sys.argv[3])
+        ans = add(int(sys.argv[1]), int(sys.argv[3]))
     elif sys.argv[2] == "-":
-        ans = int(sys.argv[1]) - int(sys.argv[3])
+        ans = sub(int(sys.argv[1]), int(sys.argv[3]))
     elif sys.argv[2] == "/":
-        ans = int(sys.argv[1]) / int(sys.argv[3])
+        ans = div(int(sys.argv[1]), int(sys.argv[3]))
     else:
-        ans = int(sys.argv[1]) * int(sys.argv[3])
+        ans = mul(int(sys.argv[1]), int(sys.argv[3]))
     print("{} {} {}  = {}".format(sys.argv[1], sys.argv[2],  sys.argv[3], ans))
 
 
