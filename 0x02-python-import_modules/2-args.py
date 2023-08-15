@@ -6,8 +6,7 @@ def main():
     size = len(sys.argv) - 1
     print("{} argument{}{}".format(
         size,
-        "",
-        "s" if size == 1 else "",
+        "" if size == 1 else "s",
         "." if size == 0 else ":"
     ))
     if size != 0:
