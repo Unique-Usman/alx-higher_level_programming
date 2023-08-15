@@ -5,7 +5,7 @@ import hidden_4
 def main():
     names = dir(hidden_4)
     for name in names:
-        if name.startswith("__") not True:
+        if name[:2] != "__":
             print(name)
 
 
