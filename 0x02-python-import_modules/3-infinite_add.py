@@ -9,5 +9,6 @@ def main():
         sum += int(sys.argv[i])
     print(sum)
 
+
 if __name__ == "__main__":
     main()
