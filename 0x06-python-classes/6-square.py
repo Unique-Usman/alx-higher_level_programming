@@ -54,7 +54,7 @@ class Square:
         Raises:
             TypeError: The value must be tuple with len 2
         """
-        if type(value) != tuple and len(value) == 2:
+        if isinstance(value, tuple) and len(value) == 2:
             raise TypeError("position must be a tuple of 2 position integers")
         self.__position = value
 
