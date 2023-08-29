@@ -1,13 +1,10 @@
 #!/usr/bin/python3
 
+"""Define a square"""
+
 
 class Square:
-    """A class for making a square
-
-    Attributes:
-        size: __size of the any square object
-        position: position of the square
-    """
+    """A class for making a square"""
 
     def __init__(self, size=0, position=(0, 0)):
         """It initialize any object of the class
@@ -15,7 +12,6 @@ class Square:
         Args:
             size: the size of the side of the square
             position: position of the square
-
         """
         self.size = size
         self.position = position
@@ -40,12 +36,27 @@ class Square:
 
     @property
     def position(self):
+        """to retrieve the position attribute
+
+        Returns:
+            position attribute
+        """
         return self.__position
 
     @position.setter
     def position(self, value):
-        if type(value) is not == tuple and len(value) == 2:
+        """set position attrbute
+
+        Return:
+            return nothing
+        Args:
+            value: value of to set the position to
+        Raises:
+            TypeError: The value must be tuple with len 2
+        """
+        if type(value) != tuple and len(value) == 2:
             raise TypeError("position must be a tuple of 2 position integers")
+        self.__position = value
 
     @size.setter
     def size(self, value):
@@ -64,8 +75,13 @@ class Square:
             nothing
         """
 
+        if self.__size == 0:
+            print("")
+            return
+        [print("") for i in range(0, self.__position[1])]
         for i in range(self.__size):
+            for o in range(self.__position[0]):
+                print(" ", end="")
             for j in range(self.__size):
                 print("#", end="")
             print("")
-        print("")
