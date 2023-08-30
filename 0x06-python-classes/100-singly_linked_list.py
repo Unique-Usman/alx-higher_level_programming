@@ -47,8 +47,8 @@ class Node:
         """
         return self.__next_node
 
-    @data.setter
-    def data(self, value):
+    @next_node.setter
+    def next_node(self, value):
         """To set the new_node attribute to value
 
         Args:
@@ -56,9 +56,9 @@ class Node:
         Raises:
             TypeError: value must be integer
         """
-        if not isinstance(value, Node) or if not isinstance(value, None):
+        if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node Object")
-        next_node = value
+        self.__next_node = value
 
 
 class SinglyLinkedList:
@@ -66,11 +66,30 @@ class SinglyLinkedList:
 
     def __init__(self):
         """initialized the head"""
-        __head = None
+        self.__head = None
 
-    def sortd_insert(self, value):
+    def sorted_insert(self, value):
         """inserts a new Node"""
-        if head == None:
-            head = Node(value, None)
-            return
-        if head.next 
+        tmp = Node(value)
+        if self.__head is None or value < self.__head.data:
+            tmp.next_node = self.__head
+            self.__head = tmp
+        else:
+            temp = self.__head
+            while temp.next_node is not None and temp.next_node.data < value:
+                temp = temp.next_node
+            tmp.next_node = temp.next_node
+            temp.next_node = tmp
+
+    def __str__(self):
+        """this function is called when the print function is used
+
+        Returns:
+            str: the element of each node in concatenate manner
+        """
+        res = ""
+        tmp = self.__head
+        while tmp:
+            res += str(tmp.data) + "\n"
+            tmp = tmp.next_node
+        return res
