@@ -90,6 +90,10 @@ class SinglyLinkedList:
         res = ""
         tmp = self.__head
         while tmp:
+            if tmp.next_node is None:
+                res += str(tmp.data)
+                tmp = tmp.next_node
+                continue
             res += str(tmp.data) + "\n"
             tmp = tmp.next_node
         return res
