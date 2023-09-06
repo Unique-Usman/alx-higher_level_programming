@@ -5,6 +5,7 @@
 class Rectangle:
     """A class to make rectangle"""
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """init function just l ike constructor
@@ -91,7 +92,7 @@ class Rectangle:
         ans = ""
         for i in range(self.__height):
             for j in range(self.__width):
-                ans += "#"
+                ans += f"{self.print_symbol}"
             ans += "\n"
         return ans
 
@@ -107,3 +108,17 @@ class Rectangle:
         """The destructor is called when an object is deleted"""
         Rectangle.number_of_instances -= 1
         print("Bye recangle...")
+
+    def bigger_or_equal(rect_1, rect_2):
+        """it check for the bigger rectangle
+
+        Returns:
+            Rectangle: rectangle that is bigger
+        Raises:
+            TypeError: if either of the rect obj is not and instance of rectangle
+        """
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        return rect_1 if rect_1.area() > rect_2.area() else rect_2

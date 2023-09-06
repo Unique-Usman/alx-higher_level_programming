@@ -5,6 +5,7 @@
 class Rectangle:
     """A class to make rectangle"""
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """init function just l ike constructor
@@ -91,7 +92,7 @@ class Rectangle:
         ans = ""
         for i in range(self.__height):
             for j in range(self.__width):
-                ans += "#"
+                ans += f"{self.print_symbol}"
             ans += "\n"
         return ans
 
