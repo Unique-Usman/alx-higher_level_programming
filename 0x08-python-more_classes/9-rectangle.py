@@ -119,7 +119,8 @@ class Rectangle:
         Returns:
             Rectangle: rectangle that is bigger
         Raises:
-            TypeError: if either of the rect obj is not and instance of rectangle
+            TypeError: if either of the rect obj is not
+            and instance of rectangle
         """
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
