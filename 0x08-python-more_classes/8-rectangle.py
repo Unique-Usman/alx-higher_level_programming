@@ -35,9 +35,9 @@ class Rectangle:
             value (int): the value to set the rectangle width to
         """
         if type(value) is not int:
-            raise TypeError("width must be an integer")
+            raise TypeError("width must be an integer\n")
         if value < 0:
-            raise ValueError("width must be >= 0")
+            raise ValueError("width must be >= 0\n")
         self.__width = value
 
     @property
@@ -57,9 +57,9 @@ class Rectangle:
             value (int): the value to set the rectangle height to
         """
         if type(value) is not int:
-            raise TypeError("width must be an integer")
+            raise TypeError("height must be an integer\n")
         if value < 0:
-            raise ValueError("width must be >= 0")
+            raise ValueError("height must be >= 0\n")
         self.__height = value
 
     def area(self):
@@ -107,7 +107,7 @@ class Rectangle:
     def __del__(self):
         """The destructor is called when an object is deleted"""
         Rectangle.number_of_instances -= 1
-        print("Bye recangle...")
+        print("Bye recangle...\n")
 
     def bigger_or_equal(rect_1, rect_2):
         """it check for the bigger rectangle
@@ -119,7 +119,7 @@ class Rectangle:
             and instance of rectangle
         """
         if not isinstance(rect_1, Rectangle):
-            raise TypeError("rect_1 must be an instance of Rectangle")
+            raise TypeError("rect_1 must be an instance of Rectangle\n")
         if not isinstance(rect_2, Rectangle):
-            raise TypeError("rect_2 must be an instance of Rectangle")
+            raise TypeError("rect_2 must be an instance of Rectangle\n")
         return rect_1 if rect_1.area() > rect_2.area() else rect_2
