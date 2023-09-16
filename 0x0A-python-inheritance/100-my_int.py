@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Define my custom class int"""
 
+
 class MyInt(int):
     """my int class"""
     def __eq__(self, other):
