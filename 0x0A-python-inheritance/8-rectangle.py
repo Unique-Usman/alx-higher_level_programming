@@ -28,3 +28,19 @@ class BaseGeometry:
             raise TypeError(f"{name} must be an integer")
         if value < 1:
             raise ValueError(f"{name} must be greater than 0")
+
+
+class Rectangle(BaseGeometry):
+    """The rectangle"""
+
+    def __init__(self, width, height):
+        """to initialize the rectangle class
+
+        Args:
+            width (int): width of the triangle
+            height (int): height of the triangle
+        """
+        super().integer_validator("width", width)
+        super().integer_validator("height", height)
+        self.__width = width
+        self.__height = height
