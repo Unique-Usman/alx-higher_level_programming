@@ -41,7 +41,7 @@ class Rectangle(Base):
             value (int): the width to set the width to
         """
 
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -63,7 +63,7 @@ class Rectangle(Base):
         Args:
             value (int): the height to set the height to
         """
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
@@ -87,7 +87,7 @@ class Rectangle(Base):
             value (int): the x to set the x to
         """
 
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -110,9 +110,26 @@ class Rectangle(Base):
             value (int): the x to set the x to
         """
 
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
 
+    def area(self):
+        """get the area of the rectangle
+
+        Returns:
+            area (int): return the area of the rectangle
+        """
+
+        return self.__width * self.__height
+
+    def display(self):
+        """Display the area of triangle in ###"""
+        for j in range(self.__height):
+            [print("#", end="") for i in range(self.__width)]
+            print()
+    def __str__(self):
+        """returns a string representaion of the rectangle"""
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.__width}/{self.__height}"
