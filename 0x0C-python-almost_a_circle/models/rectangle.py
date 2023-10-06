@@ -3,7 +3,7 @@
 
 The rectangle class inherit from the Base class
 """
-from .base import Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -19,10 +19,10 @@ class Rectangle(Base):
             y:
         """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -34,14 +34,18 @@ class Rectangle(Base):
         return self.__width
 
     @width.setter
-    def width(self, width):
+    def width(self, value):
         """width property setter
 
         Args:
-            width (int): the width to set the width to
+            value (int): the width to set the width to
         """
 
-        self.__width = width
+        if type(value) != int:
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
+        self.__width = value
 
     @property
     def height(self):
@@ -53,33 +57,18 @@ class Rectangle(Base):
         return self.__height
 
     @height.setter
-    def height(self, height):
+    def height(self, value):
         """height property setter
 
         Args:
-            height (int): the height to set the height to
+            value (int): the height to set the height to
         """
+        if type(value) != int:
+            raise TypeError("height must be an integer")
+        if value <= 0:
+            raise ValueError("height must be > 0")
 
-        self.__height = height
-
-    @property
-    def y(self):
-        """y property getter
-
-        Returns:
-            int: the y of a rectangle
-        """
-        return self.__y
-
-    @y.setter
-    def y(self, y):
-        """y property setter
-
-        Args:
-            y (int): the x to set the x to
-        """
-
-        self.__y = y
+        self.__height = value
 
     @property
     def x(self):
@@ -91,11 +80,39 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    def x(self, x):
+    def x(self, value):
         """x property setter
 
         Args:
-            x (int): the x to set the x to
+            value (int): the x to set the x to
         """
 
-        self.__x = x
+        if type(value) != int:
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
+        self.__x = value
+
+    @property
+    def y(self):
+        """y property getter
+
+        Returns:
+            int: the y of a rectangle
+        """
+        return self.__y
+
+    @y.setter
+    def y(self, value):
+        """y property setter
+
+        Args:
+            value (int): the x to set the x to
+        """
+
+        if type(value) != int:
+            raise TypeError("y must be an integer")
+        if value < 0:
+            raise ValueError("y must be >= 0")
+        self.__y = value
+
