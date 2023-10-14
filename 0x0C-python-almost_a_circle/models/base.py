@@ -48,3 +48,31 @@ class Base:
                 for obj in list_objs:
                     json_rep.append(obj.to_json_string(obj.to_dictionary()))
                 json.dump(json_rep, fd)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """returns the list of the JSON string representation json_string
+
+        Args:
+            json_string (str): the json string object
+        """
+        if json_string is None:
+            return []
+        return json.loads(json_string)
+    
+    @classmethod
+    def create(cls, **dictionary):
+        """It returns  an instance with all attribute sets
+
+        Args:
+            dictionary: double pointer to a dictionary
+        Returns:
+            instance of the class with all attribute set
+        """
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                new = cls(1, 1)
+            else:
+                new = cls(1)
+            new.update(**dictionary)
+            return new
