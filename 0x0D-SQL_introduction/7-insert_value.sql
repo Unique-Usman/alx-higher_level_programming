@@ -1,1 +1,4 @@
-insert into first_table (id, name) values(89, "Best School");
+-- INSERT INTO THE FIRST_TABLE
+
+INSERT INTO first_table (id, name)
+VALUES(89, "Best School");

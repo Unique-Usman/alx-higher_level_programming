@@ -1,1 +1,4 @@
-show columns from first_table;
+-- SHOW FULL DESCRIPTION OF FIRST_TABLE
+-- WITH USING DESCRIBE OR EXPLAIN
+
+SHOW COLUMNS FROM first_table;

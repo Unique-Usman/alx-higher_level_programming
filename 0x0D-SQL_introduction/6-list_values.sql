@@ -1,1 +1,4 @@
-select * from first_table;
+-- LISTS ALL ROWS OF THE TABLE FIRST_TABLE
+-- FROM THE DATABASE HBTN_0C_0
+
+SELECT * FROM first_table;
