@@ -1,1 +1,4 @@
-select score, name from second_table order by score desc;
+-- LIST ALL SCORE, NAME RECORDS OF SECOND_TABLE
+-- ORDER BY SCORE IN DESCENDING ORDER
+
+SELECT score, name FROM second_table ORDER BY score DESC;
