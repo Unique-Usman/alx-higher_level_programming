@@ -1,4 +1,8 @@
-select tv_shows.title, tv_show_genres.genre_id
-from tv_shows
-inner join tv_show_genres on tv_shows.id  = tv_show_genres.genre_id
-order by tv_shows.title asc, tv_show_genres.genre_id asc;
+-- Retrieves TV show titles and their corresponding
+-- genre IDs, joining TV shows and TV show genres
+
+SELECT tv_shows.title, tv_show_genres.genre_id
+FROM tv_shows
+INNER JOIN tv_show_genres ON tv_shows.id = tv_show_genres.genre_id
+ORDER BY tv_shows.title ASC, tv_show_genres.genre_id ASC;
+

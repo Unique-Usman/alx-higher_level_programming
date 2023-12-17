@@ -1,5 +1,8 @@
-select tv_shows.title, sum(tv_show_ratings.rate) as rating
-from tv_show_ratings
-inner join tv_shows on tv_show_ratings.show_id = tv_shows.id
-group by tv_shows.title
-order by rating desc;
+-- Retrieve TV show titles along with their total ratings,
+-- sorted by total rating in descending order
+
+SELECT tv_shows.title, SUM(tv_show_ratings.rate) AS rating
+FROM tv_show_ratings
+INNER JOIN tv_shows ON tv_show_ratings.show_id = tv_shows.id
+GROUP BY tv_shows.title
+ORDER BY rating DESC;

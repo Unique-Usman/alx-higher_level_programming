@@ -1,6 +1,14 @@
-create database if not exists hbtn_0d_usa;
-use hbtn_0d_usa;
-create table if not exists cities
-(id int auto_increment not null primary key,
-name varchar(256) not null,
-state_id int not null, foreign key(state_id) references states(id));
+-- Create database if it doesn't exist
+CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
+
+-- Use the created database
+USE hbtn_0d_usa;
+
+-- Create 'cities' table if it doesn't exist
+CREATE TABLE IF NOT EXISTS cities (
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    name VARCHAR(256) NOT NULL,
+    state_id INT NOT NULL,
+    FOREIGN KEY(state_id) REFERENCES states(id)
+);
+
