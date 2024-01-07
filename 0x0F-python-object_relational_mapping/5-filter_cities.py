@@ -5,7 +5,8 @@ import sys
 
 """
 Connect to a database hbtn_0e_0_usa and
-list all states from the database
+list all cities from the database based on
+the arguments(state)
 """
 
 if __name__ == "__main__":
@@ -20,12 +21,22 @@ if __name__ == "__main__":
                 db=sys.argv[3]
                 )
         cursor = connection.cursor()
-        cursor.execute("""SELECT * from states
-                        ORDER BY id
-                       """)
+        cursor.execute("""
+                       SELECT distinct(name)
+                       FROM cities
+                       WHERE state_id IN
+                       (SELECT id FROM states WHERE name = %s);
+                       """, (sys.argv[4],))
         results = cursor.fetchall()
+        out = []
         for result in results:
-            print(result)
+            out.append(result[0])
+
+        for i, v in enumerate(out):
+            if i != len(out) - 1:
+                print(v, end=", ")
+            else:
+                print(v)
         cursor.close()
         connection.close()
     except Error as err:

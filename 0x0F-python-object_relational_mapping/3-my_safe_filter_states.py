@@ -5,7 +5,9 @@ import sys
 
 """
 Connect to a database hbtn_0e_0_usa and
-list all states from the database
+list all states from the database and
+display all values in state where name
+matches the argument
 """
 
 if __name__ == "__main__":
@@ -20,9 +22,8 @@ if __name__ == "__main__":
                 db=sys.argv[3]
                 )
         cursor = connection.cursor()
-        cursor.execute("""SELECT * from states
-                        ORDER BY id
-                       """)
+        cursor.execute(f"SELECT * from states WHERE name = %s ORDER BY id",
+                       (sys.argv[4],))
         results = cursor.fetchall()
         for result in results:
             print(result)

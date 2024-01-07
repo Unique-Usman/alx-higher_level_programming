@@ -5,7 +5,8 @@ import sys
 
 """
 Connect to a database hbtn_0e_0_usa and
-list all states from the database
+list all states from the database with a
+name starting with N
 """
 
 if __name__ == "__main__":
@@ -14,12 +15,15 @@ if __name__ == "__main__":
     try:
         connection = MySQLdb.connect(
                 host="localhost",
+                port=3306,
                 user=sys.argv[1],
                 passwd=sys.argv[2],
                 db=sys.argv[3]
                 )
         cursor = connection.cursor()
-        cursor.execute("SELECT * from states WHERE name like 'N%'")
+        cursor.execute("""SELECT * from states WHERE name like 'N%'
+                        ORDER BY id
+                       """)
         results = cursor.fetchall()
         for result in results:
             print(result)

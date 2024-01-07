@@ -5,7 +5,7 @@ import sys
 
 """
 Connect to a database hbtn_0e_0_usa and
-list all states from the database
+list all cities with the states from the database
 """
 
 if __name__ == "__main__":
@@ -20,8 +20,10 @@ if __name__ == "__main__":
                 db=sys.argv[3]
                 )
         cursor = connection.cursor()
-        cursor.execute("""SELECT * from states
-                        ORDER BY id
+        cursor.execute("""SELECT cities.id, cities.name, states.name
+                       FROM states
+                       LEFT JOIN cities ON states.id = cities.state_id
+                       ORDER BY cities.id ASC;
                        """)
         results = cursor.fetchall()
         for result in results:
