@@ -12,7 +12,7 @@ with request.urlopen(req) as response:
     content_type = type(content)
     content_utf8 = content.decode("utf-8")
 
-    print(f"""
+    print(f"""\
 Body response:
     - type: {content_type}
     - content: {content}
