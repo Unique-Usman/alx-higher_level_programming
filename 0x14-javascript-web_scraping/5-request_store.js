@@ -15,7 +15,7 @@ request.get(`${process.argv[2]}/`,
     fs.writeFile(process.argv[3], body, err => {
       if (err) {
         console.log(err);
-        return err;
+        // return err;
       }
     });
   }
